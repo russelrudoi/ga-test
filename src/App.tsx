@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import ReactGA from "react-ga4";
 import './App.css'
 
-const MEASURE_ID = 'G-7J40D78V39';
+const MEASURE_ID = 'G-L5SWG58K3D';
 
 ReactGA.initialize([
     {
