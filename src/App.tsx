@@ -1,10 +1,29 @@
-import { useState } from 'react'
+import { useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import ReactGA from "react-ga4";
 import './App.css'
+
+const MEASURE_ID = 'G-7J40D78V39';
+
+ReactGA.initialize([
+    {
+        trackingId: MEASURE_ID
+    }
+])
 
 function App() {
   const [count, setCount] = useState(0)
+
+const handleClick = () => {
+    setCount((count) => count + 1)
+
+    ReactGA.event({
+        category: 'button_click',
+        action: `add count`,
+        label: `${count}`,
+    })
+}
 
   return (
     <>
@@ -18,7 +37,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={handleClick}>
          my count is {count}
         </button>
         <p>
